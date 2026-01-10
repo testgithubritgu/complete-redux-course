@@ -1,28 +1,44 @@
-import { useState } from "react";
-import "./App.css";
-import { Button } from "./components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "./components/ui/tooltip";
 
+import "./App.css";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement, reset } from "./features/counter/counterSlice";
 function App() {
-  const [amt,setAmt]= useState(0)
+
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
   return (
-    <> 
-      <Tooltip>
-        <TooltipTrigger>
-          <Button variant="default">Click me</Button>
-        </TooltipTrigger>
-        <TooltipContent>Bhai This Tool Tip</TooltipContent>
-      </Tooltip>
-      <h1>Amount: {amt}</h1>
-      <div className="flex items-center gap-2.5 w-fit mx-auto">
-        <Button onClick={() => setAmt(amt+1)}>Increment</Button>
-        <Button onClick={() => setAmt(amt >0 ? amt-1 : 0)}>Decrement</Button>
+    <div className="min-h-fit flex items-center justify-center ">
+      <div className="bg-white rounded-2xl shadow-2xl p-8 w-80 text-center">
+        <h2 className="text-lg font-semibold text-gray-500 mb-4">
+          Redux Counter
+        </h2>
+
+        <h1 className="text-6xl font-bold text-gray-900 mb-8">{count}</h1>
+
+        <div className="flex justify-center gap-3">
+          <button
+            onClick={() => dispatch(increment())}
+            className="px-5 py-2 text-lg font-semibold text-white bg-green-500 rounded-xl hover:bg-green-600 active:scale-95 transition"
+          >
+            +
+          </button>
+
+          <button
+            onClick={() => dispatch(decrement())}
+            className="px-5 py-2 text-lg font-semibold text-white bg-red-500 rounded-xl hover:bg-red-600 active:scale-95 transition"
+          >
+            −
+          </button>
+
+          <button
+            onClick={() => dispatch(reset())}
+            className="px-4 py-2 text-sm font-semibold text-white bg-indigo-500 rounded-xl hover:bg-indigo-600 active:scale-95 transition"
+          >
+            Reset
+          </button>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
