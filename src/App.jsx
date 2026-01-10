@@ -10,7 +10,7 @@ import {
 function App() {
   const [amt,setAmt]= useState(0)
   return (
-    <>
+    <> 
       <Tooltip>
         <TooltipTrigger>
           <Button variant="default">Click me</Button>
