@@ -9,7 +9,7 @@ export const updateCount = createSlice({
     name:"updatecount",
     reducers:{
         addcount:(state,actions)=>{
-            state.count = actions
+            state.count = actions.payload
         },
         reset:(state)=>{
             state.count = 0
