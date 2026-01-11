@@ -1,6 +1,7 @@
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, reset } from "./features/counter/counterSlice";
+import UpdateCount from "./components/counter/UpdateCount";
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
           
         </div>
       </div>
+      <UpdateCount />
     </div>
   );
 }
