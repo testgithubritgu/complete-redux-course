@@ -5,6 +5,7 @@ import UpdateCount from "./components/counter/UpdateCount";
 import { useState } from "react";
 import { update } from "./features/namechanger/change-name";
 import ChaeckStates from "./components/check-state";
+import Users from "./components/user/Users";
 
 function App() {
 
@@ -64,7 +65,13 @@ const updateName = (s)=>{
       />
       <h1>This is name - {named}</h1>
       <button onClick={()=>updateName(name)}>Update Name</button>
+      <br />
+      <br />
+      <br />
+      <br />
+      <Users/>
     </div>
+    
   );
 }
 
