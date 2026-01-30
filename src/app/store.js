@@ -8,7 +8,7 @@ export const store = configureStore({
     reducer: {
         counter: counterReducer,
         updateCOunt:counterUpdate,
-        updateName:updateName,
+        updateName:updateName, 
         users:usersReducer
     },
 });
